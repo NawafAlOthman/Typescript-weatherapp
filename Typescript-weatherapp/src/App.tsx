@@ -11,6 +11,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./App.css";
 
 function App() {
+  document.body.style.backgroundColor = "#d8d8d8";
   return (
     <div>
       <SearchBar />

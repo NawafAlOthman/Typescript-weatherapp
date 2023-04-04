@@ -94,7 +94,9 @@ function SearchBar() {
           // create margin between the input and the button
           style={{
             marginRight: "0.5rem",
-            borderRadius: "0.5rem",
+            borderRadius: "0.9rem",
+            border: "none",
+            padding: "0.25rem",
             width: "20rem",
           }}
         />
@@ -102,11 +104,12 @@ function SearchBar() {
           type="submit"
           // make the button prettier
           style={{
-            borderRadius: "0.5rem",
+            borderRadius: "0.9rem",
             backgroundColor: "",
             border: "none",
             width: "5rem",
             height: "2rem",
+            margin: "-3rem",
           }}
         >
           Search
@@ -219,8 +222,12 @@ function MainWeather(weather: any) {
   return (
     <div style={{}}>
       <div className="container">
-        <h2>{weather.main.name}</h2>
-        <b>{timeCal}</b>
+        <h2>
+          {weather.main.name}, {weather.main.sys.country}
+        </h2>
+        <b>
+          {timeCal} <br /> {hourMins}
+        </b>
       </div>
       <img
         src={`http://openweathermap.org/img/w/${weather.main.weather[0].icon}.png`}
