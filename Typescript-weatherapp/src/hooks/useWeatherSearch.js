@@ -17,11 +17,11 @@ function useWeatherSearch(query) {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast/?q=${query}&units=metric&cnt=7&appid=${APIKey}`,
+          `https://api.openweathermap.org/data/2.5/forecast/?q=${query}&units=metric&appid=${APIKey}`,
           { signal: controller.signal }
         );
         const currResponse = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast/?q=${query}&units=metric&appid=${APIKey}`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${APIKey}`,
           { signal: controller.signal }
         );
         currResponseBody = await currResponse.json();

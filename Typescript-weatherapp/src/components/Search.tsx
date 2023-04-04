@@ -59,7 +59,7 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    const newItems = currWeather.list?.map((data: any) => (
+    const newItems = weather.list?.map((data: any) => (
       <WeatherCard
         key={data.dt}
         icon={data.weather[0].icon}
@@ -70,14 +70,14 @@ function SearchBar() {
     ));
     console.log("current weather : ", currWeather);
     setItems(newItems);
-  }, [currWeather]);
+  }, [currWeather, weather]);
 
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {currWeather.city ? (
           <h2>
-            {currWeather.city.name},{weather.city.country}
+            {currWeather.city.name}, {currWeather.city.country}
           </h2>
         ) : (
           <h2></h2>
@@ -87,15 +87,27 @@ function SearchBar() {
         <input
           // allow letters A-Z, a-z, and commas
           pattern="[A-Za-z, ]*"
+          placeholder="Enter a city name"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           // create margin between the input and the button
-          style={{ marginRight: "0.5rem" }}
+          style={{
+            marginRight: "0.5rem",
+            borderRadius: "0.5rem",
+            width: "20rem",
+          }}
         />
         <button
           type="submit"
           // make the button prettier
+          style={{
+            borderRadius: "0.5rem",
+            backgroundColor: "",
+            border: "none",
+            width: "5rem",
+            height: "2rem",
+          }}
         >
           Search
         </button>
@@ -107,13 +119,40 @@ function SearchBar() {
       {error && <div>{error}</div>}
       {/* Display the weather data if it exists */}
       <div>
+        {currWeather.dt ? (
+          // <WeatherCard
+          //   icon={currWeather.weather[0].icon}
+          //   description={currWeather.weather[0].description}
+          //   temp={currWeather.main.temp}
+          //   date={currWeather.dt}
+          // />
+          <div
+            style={{
+              // center the main weather card
+              display: "inline-block",
+              textAlign: "center",
+              border: "solid 0.05px",
+              height: "13rem",
+              margin: "1rem",
+              width: "20rem",
+              borderRadius: "0.5rem",
+              backgroundColor: "#eee",
+            }}
+          >
+            <MainWeather main={currWeather} />
+          </div>
+        ) : (
+          <h2></h2>
+        )}
         {items ? (
-          <AliceCarousel
-            mouseTracking
-            keyboardNavigation
-            items={items}
-            disableButtonsControls
-          />
+          <div>
+            <AliceCarousel
+              mouseTracking
+              keyboardNavigation
+              items={items}
+              disableButtonsControls
+            />
+          </div>
         ) : (
           <h2></h2>
         )}
@@ -170,6 +209,28 @@ function WeatherCard({ icon, description, temp, date }: any) {
           Temperature: {temp}°C
         </div>
       </Collapse>
+    </div>
+  );
+}
+
+function MainWeather(weather: any) {
+  console.log("main weather : ", weather);
+  let [timeCal, hourMins] = timeConverter(weather.main.dt);
+  return (
+    <div style={{}}>
+      <div className="container">
+        <h2>{weather.main.name}</h2>
+        <b>{timeCal}</b>
+      </div>
+      <img
+        src={`http://openweathermap.org/img/w/${weather.main.weather[0].icon}.png`}
+      />
+      <h6>{weather.main.weather[0].description}</h6>
+      <h6>Temperature: {weather.main.main.temp}°C</h6>
+      <div className="container">
+        <h6>Humidity: {weather.main.main.humidity}%</h6>
+        <h6>Wind: {weather.main.wind.speed}m/s</h6>
+      </div>
     </div>
   );
 }
