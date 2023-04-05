@@ -1,6 +1,5 @@
-# Typescript weatherapp
+# Weather app
 
-<h1>React weather app</h1>
 
 This react weather app is a way for me to test out react using typescript
 
