@@ -188,7 +188,7 @@ function WeatherCard({ icon, description, temp, date }: any) {
     >
       {timeCal} <br />
       <img
-        src={`http://openweathermap.org/img/w/${icon}.png`}
+        src={`${icon}.svg`}
         onClick={() => setOpen(!open)}
         onDragStart={handleDragStart}
         role="presentation"
@@ -229,9 +229,7 @@ function MainWeather(weather: any) {
           {timeCal} <br /> {hourMins}
         </b>
       </div>
-      <img
-        src={`http://openweathermap.org/img/w/${weather.main.weather[0].icon}.png`}
-      />
+      <img src={`${weather.main.weather[0].icon}.svg`} />
       <h6>{weather.main.weather[0].description}</h6>
       <h6>Temperature: {weather.main.main.temp}°C</h6>
       <div className="container">
