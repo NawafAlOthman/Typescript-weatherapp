@@ -130,6 +130,7 @@ function SearchBar() {
           //   date={currWeather.dt}
           // />
           <div
+            className="mainWeather"
             style={{
               // center the main weather card
               display: "inline-block",
@@ -137,7 +138,7 @@ function SearchBar() {
               border: "solid 0.05px",
               height: "13rem",
               margin: "1rem",
-              width: "20rem",
+              width: "30rem",
               borderRadius: "0.5rem",
               backgroundColor: "#eee",
             }}
@@ -233,8 +234,15 @@ function MainWeather(weather: any) {
       <h6>{weather.main.weather[0].description}</h6>
       <h6>Temperature: {weather.main.main.temp}°C</h6>
       <div className="container">
-        <h6>Humidity: {weather.main.main.humidity}%</h6>
-        <h6>Wind: {weather.main.wind.speed}m/s</h6>
+        <h6>
+          {" "}
+          Humidity: {weather.main.main.humidity}%
+          <img src="humidity.svg" height={"40px"} width={40} />
+        </h6>
+        <h6>
+          Wind: {weather.main.wind.speed}m/s{" "}
+          <img src="wind.svg" height={40} width={40} />{" "}
+        </h6>
       </div>
     </div>
   );

@@ -73,3 +73,13 @@ button:hover {
   border-color: #719ece;
   box-shadow: 0 0 10px #719ece;
 }
+
+.mainWeather {
+  /* change this sometime, maybe */
+  background: rgb(187, 156, 170);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgb(149, 174, 202) 100%
+  );
+}
