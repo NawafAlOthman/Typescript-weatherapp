@@ -76,10 +76,21 @@ button:hover {
 
 .mainWeather {
   /* change this sometime, maybe */
-  background: rgb(187, 156, 170);
+  /* background: rgb(187, 156, 170);
   background: radial-gradient(
     circle,
     rgba(238, 174, 202, 1) 0%,
     rgb(149, 174, 202) 100%
-  );
+  ); */
+  background-image: url("https://img.hoodline.com/uploads/story/image/387530/istock__..featured_image_1..sunny_4.jpg.jpg");
+  background-size: cover;
+
+  box-shadow: 0 0 10px black;
 }
+
+/*
+https://t4.ftcdn.net/jpg/05/13/26/73/360_F_513267391_QEmNGeOFLLqrILTnoq21dReUPp5UsoNr.jpg
+https://img.hoodline.com/uploads/story/image/387530/istock__..featured_image_1..sunny_4.jpg.jpg
+https://s7d2.scene7.com/is/image/TWCNews/heavy_rain_jpg-11
+https://image-renderer.sinclairstoryline.com/prod/image-renderer/16x9/full/1015/center/80/2a85926f-e07c-42b4-bc77-b3681d864147-large16x9_be94f27fc70a4e6cb3cc9a448da929b8SnowfallsinEllicottCityVeronicaJohnson.jpeg
+*/

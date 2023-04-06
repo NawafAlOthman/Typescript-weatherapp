@@ -135,12 +135,13 @@ function SearchBar() {
               // center the main weather card
               display: "inline-block",
               textAlign: "center",
-              border: "solid 0.05px",
               height: "13rem",
               margin: "1rem",
               width: "30rem",
               borderRadius: "0.5rem",
               backgroundColor: "#eee",
+              color: "white",
+              textShadow: "1px 1px 2px black",
             }}
           >
             <MainWeather main={currWeather} />
